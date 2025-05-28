@@ -1,0 +1,23 @@
+# Ignore build files
+target/
+*.jar
+*.war
+*.ear
+
+# Ignore IDE settings
+.idea/
+*.iml
+*.class
+
+# Ignore logs
+*.log
+
+# Ignore Maven & Gradle artifacts
+/.mvn/
+/.gradle/
+/bin/
+/out/
+/build/
+
+# Ignore environment files
+*.env
