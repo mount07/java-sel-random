@@ -1,4 +1,4 @@
-package testPkg.misc;
+package testPkg.utils;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

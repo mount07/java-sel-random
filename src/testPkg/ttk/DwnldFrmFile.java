@@ -1,4 +1,4 @@
-package testPkg;
+package testPkg.ttk;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -10,6 +10,8 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import testPkg.utils.FileClass;
 
 public class DwnldFrmFile {
 	public static void main(String[] args) throws InterruptedException, IOException {

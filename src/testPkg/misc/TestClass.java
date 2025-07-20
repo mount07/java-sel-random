@@ -1,6 +1,8 @@
-package testPkg;
+package testPkg.misc;
 
 import java.io.File;
+
+import testPkg.utils.FileClass;
 
 public class TestClass {
 

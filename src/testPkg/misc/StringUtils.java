@@ -1,4 +1,4 @@
-package testPkg;
+package testPkg.misc;
 
 public class StringUtils {
 

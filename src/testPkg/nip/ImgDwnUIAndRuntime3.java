@@ -1,16 +1,15 @@
 package testPkg.nip;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
-import testPkg.misc.FileClass;
+import testPkg.utils.DriverManager;
+import testPkg.utils.FileClass;
 
 public class ImgDwnUIAndRuntime3 {
 	static File dir;
@@ -31,7 +30,7 @@ public class ImgDwnUIAndRuntime3 {
 	}
 
 	public static void getImgLinks() throws InterruptedException, IOException {
-		driver = new ChromeDriver();
+		driver = DriverManager.getDriver();
 		driver.get("https://members.purenudism.com/members_only/access/pictures.cgi?p=1#base");
 		Thread.sleep(20000);
 

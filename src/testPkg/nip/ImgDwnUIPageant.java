@@ -6,7 +6,8 @@ import java.io.IOException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+
+import testPkg.utils.DriverManager;
 
 public class ImgDwnUIPageant {
 	static File dir;
@@ -19,7 +20,7 @@ public class ImgDwnUIPageant {
 	}
 
 	public static void getImgLinks() throws InterruptedException, IOException {
-		driver = new ChromeDriver();
+		driver = DriverManager.getDriver();
 		driver.get(
 				"https://madlad2590:Madmax@2021@members.purenudism.com/members_only/access/event-pictures.cgi?p=3&event=21");
 		Thread.sleep(2000);

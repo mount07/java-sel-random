@@ -1,4 +1,4 @@
-package testPkg;
+package testPkg.ttk;
 
 import java.io.File;
 import java.io.IOException;
@@ -9,13 +9,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Stream;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-public class Dwnld6 {
+import testPkg.utils.FileClass;
+
+public class Dwnld7 {
 
 	public static void main(String[] args) throws InterruptedException, IOException {
 		System.out.println(":::::::::::: Starting :::::::::::::");
@@ -25,7 +30,7 @@ public class Dwnld6 {
 		String downloadSourceFile = dir + "source.txt";
 		String downloadSuccessFile = dir + "success.txt";
 		String downloadFailedFile = dir + "failed.txt";
-		
+
 		Stream<Path> files = Files.list(Paths.get(downloadFilepath));
 		long baseCount = files.count();
 		long nextCount = baseCount;
@@ -41,15 +46,46 @@ public class Dwnld6 {
 		cap.setCapability(ChromeOptions.CAPABILITY, options);
 
 		WebDriver driver = new ChromeDriver(cap);
-		
+
 		List<String> urls = Files.readAllLines(Paths.get("A:\\media\\source.txt"));
-		for(String url : urls) {
-		String id = "https://tiktokdownloader.in/wp-admin/admin-ajax.php?action=wppress_tt_download&url=" + url + "&key=no-watermark";
-		driver.get(id);
-		System.out.println(id);
-		
-		Thread.sleep(25000);
-		
+		for (String url : urls) {
+			String id = "https://tiktokdownloader.in/?tiktok-search=" + url;
+			driver.get(id);
+			System.out.println(id);
+			Thread.sleep(10000);
+
+			try {
+				WebElement videoThumb = driver.findElement(By.cssSelector(".tiktok-video-item a"));
+				if (videoThumb.isDisplayed()) {
+					videoThumb.click();
+					Thread.sleep(10000);
+				}
+				try {
+					WebElement downloadLnk = driver.findElement(By.cssSelector(".tiktok-download-link[data-key='no-watermark']"));
+					if (downloadLnk.isDisplayed()) {
+						downloadLnk.click();
+					}
+
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+			} catch (NoSuchElementException exception) {
+				// TODO: handle exception
+			}
+
+			Thread.sleep(20000);
+
+			updateFiles(downloadFilepath, downloadSourceFile, downloadSuccessFile, downloadFailedFile, baseCount, url);
+			driver.manage().deleteAllCookies();
+
+//		Thread.sleep(20000);
+		}
+
+	}
+
+	private static void updateFiles(String downloadFilepath, String downloadSourceFile, String downloadSuccessFile,
+			String downloadFailedFile, long baseCount, String url) throws IOException {
+		long nextCount;
 		try (Stream<Path> file = Files.list(Paths.get(downloadFilepath))) {
 			nextCount = file.count();
 			if (nextCount > baseCount) {
@@ -69,10 +105,5 @@ public class Dwnld6 {
 			}
 			System.out.println("FileCount : " + nextCount);
 		}
-		driver.manage().deleteAllCookies();
-		
-//		Thread.sleep(20000);
-		}
-		
 	}
 }

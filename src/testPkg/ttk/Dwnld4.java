@@ -1,4 +1,4 @@
-package testPkg;
+package testPkg.ttk;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,6 +17,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+
+import testPkg.utils.FileClass;
 
 public class Dwnld4 {
 

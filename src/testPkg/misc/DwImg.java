@@ -1,4 +1,4 @@
-package testPkg;
+package testPkg.misc;
 
 import java.awt.AWTException;
 import java.awt.Robot;

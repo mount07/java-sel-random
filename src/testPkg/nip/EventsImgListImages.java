@@ -9,9 +9,9 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
-import testPkg.misc.FileClass;
+import testPkg.utils.DriverManager;
+import testPkg.utils.FileClass;
 
 public class EventsImgListImages {
 	static File dir;
@@ -21,7 +21,7 @@ public class EventsImgListImages {
 
 		readFromFile();
 		
-		driver = new ChromeDriver();
+		driver = DriverManager.getDriver();
 		driver.get("https://madlad2590:Madmax@2021@members.purenudism.com/members_only/access/event-pictures.cgi?p=3&event=21");
 		
 		for (String url : readFromFile()) {

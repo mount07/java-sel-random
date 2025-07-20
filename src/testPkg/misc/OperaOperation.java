@@ -1,4 +1,4 @@
-package testPkg;
+package testPkg.misc;
 
 import java.io.IOException;
 import java.util.List;
