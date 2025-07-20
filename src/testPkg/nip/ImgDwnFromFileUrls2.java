@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import testPkg.StringUtils;
+import testPkg.misc.StringUtils;
 
 public class ImgDwnFromFileUrls2 {
 	static File dir;

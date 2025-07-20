@@ -11,7 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import testPkg.FileClass;
+import testPkg.misc.FileClass;
 
 public class EventsImgListImages {
 	static File dir;

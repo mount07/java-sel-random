@@ -7,7 +7,8 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import testPkg.FileClass;
+
+import testPkg.misc.FileClass;
 import testPkg.utils.DriverManager;
 
 public class EventsImgListGalaries {
