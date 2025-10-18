@@ -3,14 +3,13 @@ package testPkg;
 import java.io.File;
 import java.io.IOException;
 
+import testPkg.utils.FileUtils;
+
 public class ImgDwnFsktr {
 	static File dir;
 
 	public static void createDirectoy() {
-		dir = new File("C:\\Users\\deven\\Downloads\\" + System.currentTimeMillis());
-		if (!dir.exists()) {
-			dir.mkdirs();
-		}
+		dir = FileUtils.createDirectory("D:\\autoTemp\\text", "test123");
 	}
 
 	public static void main(String[] args) throws IOException, InterruptedException {
